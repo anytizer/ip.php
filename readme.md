@@ -7,10 +7,9 @@ Find out your IP Address
 (Recommeneded method, assuming you own the domain: example.com)
 
  * Create your subdomain: ip.example.com.
- * Upload public_html/ there.
+ * Upload public_html/index.php there.
+ * __Notes__: If you want php7, upload index7.php as index.php.
  * Visit http://ip.example.com/
-
-__Notes__: If you want php7, upload index7.php as index.php.
 
 ## Command Line
 
