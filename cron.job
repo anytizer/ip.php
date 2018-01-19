@@ -1,0 +1,1 @@
+*/5 * * * * curl ip.example.com/record/ > /dev/null
