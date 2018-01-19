@@ -3,7 +3,7 @@ require_once("../inc.config.php");
 
 $_SERVER["HTTP_AGENT"] = !empty($_SERVER["HTTP_AGENT"])?$_SERVER["HTTP_AGENT"]:"";
 
-$statement = $pdo->prepare("DELETE FROM ip_logs;");
+$statement = $pdo->prepare("TRUNCATE TABLE `ip_logs`;");
 $params = array(
 );
 $success = $statement->execute($params);
