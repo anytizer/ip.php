@@ -17,7 +17,7 @@ Find out your IP Address
 	curl ip.example.com/clear/
 
 
-## Permanent Installation
+## Installation
 
 ### Recommeneded method
 
@@ -26,13 +26,14 @@ Assuming you own the domain: __example.com__,
  * Create your subdomain: ip.example.com.
  * Upload [public_html/index.php](public_html/index.php) there.
  * If you want php7, upload [index7.php](public_html/index7.php) as __index.php__.
- * Visit http://ip.example.com/
+ * Optionally, upload whole of public_html/ for full features.
+   - Create your database using [database.sql](database.sql)
+   - Rename src/public_html/inc.config-sample.php to inc.config.php
+   - Edit src/public_html/inc.config.php
+ * Visit http://ip.example.com/ to test.
 
-### Alternative Installation
+### Alternative method
 
  * Check out this repo on your server
- * Point subdomain to src/public_html path.
- * Rename src/public_html/inc.config-sample.php to inc.config.php
- * Create your [database](database.sql)
- * Edit src/public_html/inc.config.php
- * Visit ip.example.com to test
+ * Point subdomain __ip.example.com__ to src/public_html path.
+ * Configure.
