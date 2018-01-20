@@ -9,3 +9,17 @@ CREATE TABLE `ip_logs` (
   `ip_address` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`log_id`)
 );
+
+CREATE TABLE `ip_configs` (
+  `config_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `config_name` VARCHAR(255) NOT NULL,
+  `config_value` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`config_id`)
+);
+INSERT INTO ip_configs VALUES (NULL, "STATUS", "stopped");
+INSERT INTO ip_configs VALUES (NULL, "X_HTTP_HEADER_LAST", "xlast");
+INSERT INTO ip_configs VALUES (NULL, "X_HTTP_HEADER-LATEST", "xlatest");
+
+UPDATE ip_configs SET config_value = "stopped" WHERE config_name="status";
+UPDATE ip_configs SET config_value = "stopped" WHERE config_name="X_HTTP_HEADER_LAST";
+UPDATE ip_configs SET config_value = "stopped" WHERE config_name="X_HTTP_HEADER-LATEST";

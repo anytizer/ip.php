@@ -12,9 +12,11 @@ Find out your IP Address
 
 	curl ip.example.com
 	curl ip.example.com/record/
-	curl ip.example.com/latest/
-	curl ip.example.com/last/
+	curl --header "X-Latest: ___" ip.example.com/latest/
+	curl --header "X-Last: ___" ip.example.com/last/
 	curl ip.example.com/clear/
+	curl ip.example.com/start/
+	curl ip.example.com/stop/
 
 
 ## Installation

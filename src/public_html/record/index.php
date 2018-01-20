@@ -1,5 +1,5 @@
 <?php
-require_once("../inc.config.php");
+require_once("../inc.library.php");
 
 $_SERVER["HTTP_AGENT"] = !empty($_SERVER["HTTP_AGENT"])?$_SERVER["HTTP_AGENT"]:"";
 
@@ -9,4 +9,4 @@ $params = array(
 	"ip_address" => visitor_ips(),
 );
 $success = $statement->execute($params);
-echo $success?"Done":"Failed: ".print_r($pdo->errorInfo(), true);
+echo $success?"Done":"Failed: ".print_r($pdo->errorInfo(), true), "\r\n";

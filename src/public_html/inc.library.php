@@ -5,31 +5,25 @@ if(function_exists($xdebug_disable))
 	$xdebug_disable();
 }
 
-switch(strtolower($_SERVER["SERVER_NAME"]))
-{
-	case "ip.example.com":
-		$configs = array(
-			"hostname" => "localhost",
-			"username" => "ip_watch",
-			"password" => "532AEDF8-CBA3-9055-B6D7-3AA3B4247B82",
-			"database" => "ip_watch",
-		);
-		break;
-	default:
-		die("Invalid db configs");
-}
+if(empty($_SERVER["SERVER_NAME"])) $_SERVER["SERVER_NAME"] = "localhost";
+if(!isset($pdo)) $pdo = (function(){
+	try
+	{
+		require_once(dirname(__FILE__)."/../inc.config.php");
+		$pdo = new PDO(sprintf("mysql:host=%s;dbname=%s", $configs["hostname"], $configs["database"]), $configs["username"], $configs["password"]);
+	}
+	catch(Exception $ex)
+	{
+		//echo $ex;
+		die("DB Connection error.");
+	}
 
-$pdo = null;
-try
-{
-	$pdo = new PDO(sprintf("mysql:host=%s;dbname=%s", $configs["hostname"], $configs["database"]), $configs["username"], $configs["password"]);
-}
-catch(Exception $ex)
-{
-	echo $ex;
-	die("PDO Connection error.");
-}
+	return $pdo;	
+})();
 
+/**
+ * Function to obtain IP Addresses in use
+ */
 function visitor_ips()
 {
 	$ip_addresses = array();
