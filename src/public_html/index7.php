@@ -2,7 +2,7 @@
 /**
  * PHP 7 only
  */
-$ip_addresses = array();
+$ip_addresses = [];
 
 $ip_addresses[] = $_SERVER["REMOTE_ADDR"]??"";
 $ip_addresses[] = $_SERVER["HTTP_CLIENT_IP"]??"";
